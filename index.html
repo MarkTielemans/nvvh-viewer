@@ -46,7 +46,7 @@
 			var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 			var mobileBase = 'app/mobile/viewer.html?file=';
 			var webBase = 'app/web/viewer.html?file=';
-			var pdfFile = window.location.hash;
+			var pdfFile = window.location.hash.substring(1);
 			
 			var url = '';
 			if (window.matchMedia("(max-width: 992px)").matches) {
