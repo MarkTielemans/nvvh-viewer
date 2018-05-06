@@ -58,6 +58,7 @@ html, body {
 			}
 			
 			url += proxyUrl + pdfFile;
+			console.log('innHeight=' + window.innerHeight);
 			document.getElementById('viewer').height = window.innerHeight;
 			document.getElementById('viewer').src = url;
 		}
