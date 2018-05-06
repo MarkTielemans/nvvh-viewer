@@ -53,12 +53,12 @@ html, body {
 			var url = '';
 			if (window.matchMedia("(max-width: 992px)").matches) {
 				url = mobileBase;
-				document.getElementById('viewer').style.height = window.innerHeight;
 			} else {
 				url = webBase;
 			}
 			
 			url += proxyUrl + pdfFile;
+			document.getElementById('viewer').style.height = window.innerHeight;
 			document.getElementById('viewer').src = url;
 		}
 	</script>
