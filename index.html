@@ -65,8 +65,10 @@
 </head>
 
 <body>
-	<div id="web" /><div id="mobile" />
-	<iframe src="app/mobile/viewer.html" id="viewer" width="100%" height="100%" />
+	<div id="web" />
+	<div id="mobile" />
+	
+	<iframe src="" id="viewer" width="100%" height="100%" />
 	
 	<script>
 		var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -76,8 +78,10 @@
 		
 		var url = '';
 		if (document.getElementById('web').style.visibility === 'visible') {
+			console.log('web');
 			url = webBase;
 		} else {
+			console.log('mobile');
 			url = mobileBase;
 		}
 		
