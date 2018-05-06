@@ -1,45 +1,6 @@
 <!DOCTYPE html>
 <head>
 	<title>NVVH PDF viewer</title>
-	
-<style>
-html, body {
-	margin: 0px;
-	padding: 0px;
-}
-	
-@media only screen and (max-width: 600px) {
-	#viewer {
-		width: 300px;
-	}
-} 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) and (max-width: 768px) {
-	#viewer {
-		width: 500px;
-	}
-} 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-	#viewer {
-		width: 680px;
-	}
-}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
-	#viewer {
-		width: 900px;
-	}
-} 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-	#viewer {
-		width: 900px;
-	}
-}
-	
-
-</style>
 </head>
 
 <body>
@@ -51,19 +12,20 @@ html, body {
 			var pdfFile = window.location.hash.substring(1);
 			
 			var url = '';
-			if (window.matchMedia("(max-width: 992px)").matches) {
+			if (window.matchMedia("(max-width: 700px)").matches) {
 				url = mobileBase;
 			} else {
 				url = webBase;
 			}
 			
 			url += proxyUrl + pdfFile;
-			console.log('innHeight=' + window.innerHeight);
-			document.getElementById('viewer').height = window.innerHeight;
-			document.getElementById('viewer').src = url;
+			var fr = document.getElementById('a4400b1d-0d15-4b07-a787-2299e353c0c8_7988d45b-e8c3-4496-82c0-1d7e3965cc68');
+			fr.height = window.innerHeight;
+			fr.width = window.innerWidth;
+			fr.src = url;
 		}
 	</script>
 	
-	<iframe id="viewer" width="100%" height="100%" />
+	<iframe id="a4400b1d-0d15-4b07-a787-2299e353c0c8_7988d45b-e8c3-4496-82c0-1d7e3965cc68" width="100%" height="100%" />
 </body>
 </html>
