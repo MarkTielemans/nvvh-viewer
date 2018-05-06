@@ -29,6 +29,10 @@
 			var fr = document.getElementById('a4400b1d-0d15-4b07-a787-2299e353c0c8_7988d45b-e8c3-4496-82c0-1d7e3965cc68');
 			fr.height = window.innerHeight;
 			fr.width = window.innerWidth;
+			
+			if (fr.width < 600) {
+				fr.width = fr.width * 0.7;
+			}
 			fr.src = url;
 		}
 	</script>
