@@ -31,13 +31,16 @@
 			fr.width = window.innerWidth;
 			
 			if (fr.width < 600) {
-				var frameInDom = parent.document.getElementById(window.name);
-				frameInDom.style.position = 'fixed';
-				frameInDom.style.left = '0px';
-				frameInDom.style.top = '100px';
-				frameInDom.style.zIndex = '2147483647';
-				frameInDom.height = window.innerHeight - 100;
-				frameInDom.width = window.innerWidth;
+				var frameInDom = window.parent.document.getElementById('prettyviewer');
+				
+				if (frameInDom) {
+					frameInDom.style.position = 'fixed';
+					frameInDom.style.left = '0px';
+					frameInDom.style.top = '300px';
+					frameInDom.style.zIndex = '2147483647';
+					frameInDom.height = window.innerHeight;
+					frameInDom.width = window.innerWidth;
+				}
 			}
 			fr.src = url;
 		}
