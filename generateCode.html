@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+	<title>NVVH PDF viewer generator</title>
+	
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	</style>
+</head>
+
+<body>
+<div id="container" style="width: 1000px; margin-left: auto; margin-right: auto; background-color: slateblue; padding: 0 10 10 10; text-align: center; font-family: verdana, helvetica, arial;">
+<div id="notification" style="visibility: hidden; height: 30px; width: 100%; text-align: center; background-color: black; color: white; padding-top: 10px; position: relative; margin-top: 40px;"><strong>Copied to clipboard!</strong></div>
+<br />
+
+ <p style="color: white; font-weight: heavy;">Enter URL to PDF file:
+ <input type="text" value="" id="urlInput" style="width: 500px;"/>
+ <input type="submit" style="width: 270px;" value="Generate" onclick="generate()" /><br />
+ 
+ <br />
+ 
+ <textarea style="height: 400px; width: 950px;" id="ta">
+<p>
+	<iframe frameborder="0" id="pretty_pdf_viewer-frame" scrolling="no" src="https://marktielemans.github.io/nvvh-viewer/index.html#%PDF_URL%"></iframe>
+</p>
+	
+<script>
+    var fr = document.getElementById('pretty_pdf_viewer-frame');
+    fr.width = '100%';
+    fr.height = window.innerHeight;
+
+    if (window.innerWidth < 600) {
+      var el = document.getElementById('zone-content-wrapper');
+      el.style.padding = '0px';
+
+      fr.width = window.innerWidth;
+      fr.height = window.innerHeight - 100;
+    }        
+</script>
+ </textarea>
+ <textarea id="template" style="visibility: hidden;">
+ <p>
+	<iframe frameborder="0" id="pretty_pdf_viewer-frame" scrolling="no" src="https://marktielemans.github.io/nvvh-viewer/index.html#%PDF_URL%"></iframe>
+</p>
+
+	
+<script>
+    var fr = document.getElementById('pretty_pdf_viewer-frame');
+    fr.width = '100%';
+    fr.height = window.innerHeight;
+
+    if (window.innerWidth < 600) {
+      var el = document.getElementById('zone-content-wrapper');
+      el.style.padding = '0px';
+
+      fr.width = window.innerWidth;
+      fr.height = window.innerHeight - 100;
+    }        
+</script>
+ </textarea>
+ </p>
+ </div>
+ 
+ <script>
+    function generate() {
+	    var input = document.getElementById('urlInput').value;
+		var tmpl = document.getElementById('template');
+		var ta = document.getElementById('ta');
+		ta.innerHTML = template.innerHTML.replace('%PDF_URL%', input);
+		ta.select();
+		document.execCommand("Copy");
+		
+		var not = document.getElementById('notification');
+		not.style.visibility = 'visible';
+		setTimeout(function() { not.style.visibility = 'hidden' }, 3000);
+	}
+</script>
+
+</body>
+</html>
